@@ -2,7 +2,7 @@ import 'dart:math';
 
 void main() {
   final solution = Solution();
-  print(solution.addBinary('11', '1'));
+  print(solution.mySqrt(4));
 }
 
 //349. Intersection of Two Arrays
@@ -112,7 +112,12 @@ void main() {
 // }
 
 //67. Add Binary
+// class Solution {
+//   addBinary(String a, String b) =>
+//       (BigInt.parse(a, radix: 2) + BigInt.parse(b, radix: 2)).toRadixString(2);
+// }
+
+//69. Sqrt(x)
 class Solution {
-  addBinary(String a, String b) =>
-      (BigInt.parse(a, radix: 2) + BigInt.parse(b, radix: 2)).toRadixString(2);
+  int mySqrt(int x) => sqrt(x).floor();
 }
