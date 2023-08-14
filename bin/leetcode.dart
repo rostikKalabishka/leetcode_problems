@@ -1,7 +1,6 @@
 void main() {
   final solution = Solution();
-  print(solution.reverse(123));
-  print(solution.reverse(-321));
+  print(solution.isPalindrome(121));
 }
 
 //349. Intersection of Two Arrays
@@ -22,33 +21,39 @@ void main() {
 // }
 
 //7. Reverse Integer
+// class Solution {
+//   int reverse(int x) {
+//     if (x == 0) return 0;
+
+//     bool isNegative = false;
+//     if (x < 0) {
+//       isNegative = true;
+//       x = -x;
+//     }
+
+//     BigInt reversed = BigInt.from(0);
+
+//     while (x > 0) {
+//       int digit = x % 10;
+//       reversed = reversed * BigInt.from(10) + BigInt.from(digit);
+//       x ~/= 10;
+//     }
+
+//     if (isNegative) {
+//       reversed = -reversed;
+//     }
+
+//     if (reversed < BigInt.from(-2147483648) ||
+//         reversed > BigInt.from(2147483647)) {
+//       return 0;
+//     }
+
+//     return reversed.toInt();
+//   }
+// }
+
+//9. Palindrome Number
 class Solution {
-  int reverse(int x) {
-    if (x == 0) return 0;
-
-    bool isNegative = false;
-    if (x < 0) {
-      isNegative = true;
-      x = -x;
-    }
-
-    BigInt reversed = BigInt.from(0);
-
-    while (x > 0) {
-      int digit = x % 10;
-      reversed = reversed * BigInt.from(10) + BigInt.from(digit);
-      x ~/= 10;
-    }
-
-    if (isNegative) {
-      reversed = -reversed;
-    }
-
-    if (reversed < BigInt.from(-2147483648) ||
-        reversed > BigInt.from(2147483647)) {
-      return 0;
-    }
-
-    return reversed.toInt();
-  }
+  bool isPalindrome(int x) =>
+      x.toString().split('').reversed.join() == x.toString() ? true : false;
 }
