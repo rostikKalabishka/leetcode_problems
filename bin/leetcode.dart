@@ -209,11 +209,23 @@ import 'dart:math';
 // };
 
 // 2235. Add Two Integers
+// class Solution {
+//   int sum(int num1, int num2) => num1 + num2;
+// }
+
+// 2469. Convert the Temperature
 class Solution {
-  int sum(int num1, int num2) => num1 + num2;
+  List<double> convertTemperature(double celsius) {
+    List<double> arr = [];
+    double kelvin = celsius + 273.15;
+    double fahrenheit = celsius * 1.8 + 32.00;
+    arr.add(kelvin);
+    arr.add(fahrenheit);
+    return arr;
+  }
 }
 
 void main() {
   final solution = Solution();
-  // print(solution.sortedSquares([-4, -1, 0, 3, 10]));
+  print(solution.convertTemperature(36.50));
 }
