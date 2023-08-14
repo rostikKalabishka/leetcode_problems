@@ -1,6 +1,8 @@
+import 'dart:math';
+
 void main() {
   final solution = Solution();
-  print(solution.searchInsert([1, 3, 5, 6], 5));
+  print(solution.myPow(2, 10));
 }
 
 //349. Intersection of Two Arrays
@@ -65,25 +67,30 @@ void main() {
 // }
 
 //35. Search Insert Position
+// class Solution {
+//   int searchInsert(List<int> nums, int target) {
+//     int low = 0;
+//     int h = nums.length - 1;
+//     int res;
+
+//     while (low <= h) {
+//       int mid = (low + h);
+//       if (nums[mid] == target) {
+//         return mid;
+//       } else if (nums[mid] < target) {
+//         low = mid + 1;
+//       } else {
+//         h = mid - 1;
+//       }
+//     }
+
+//     nums.add(target);
+//     nums.sort();
+//     return nums.indexOf(target);
+//   }
+// }
+
+//50. Pow(x, n)
 class Solution {
-  int searchInsert(List<int> nums, int target) {
-    int low = 0;
-    int h = nums.length - 1;
-    int res;
-
-    while (low <= h) {
-      int mid = (low + h);
-      if (nums[mid] == target) {
-        return mid;
-      } else if (nums[mid] < target) {
-        low = mid + 1;
-      } else {
-        h = mid - 1;
-      }
-    }
-
-    nums.add(target);
-    nums.sort();
-    return nums.indexOf(target);
-  }
+  double myPow(double x, int n) => pow(x, n).toDouble();
 }
