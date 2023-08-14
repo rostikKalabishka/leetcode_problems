@@ -1,6 +1,6 @@
 void main() {
   final solution = Solution();
-  print(solution.search([4, 5, 6, 7, 0, 1, 2], 0));
+  print(solution.searchInsert([1, 3, 5, 6], 5));
 }
 
 //349. Intersection of Two Arrays
@@ -60,6 +60,30 @@ void main() {
 
 // 33. Search in Rotated Sorted Array
 
+// class Solution {
+//   int search(List<int> nums, int target) => nums.indexOf(target);
+// }
+
+//35. Search Insert Position
 class Solution {
-  int search(List<int> nums, int target) => nums.indexOf(target);
+  int searchInsert(List<int> nums, int target) {
+    int low = 0;
+    int h = nums.length - 1;
+    int res;
+
+    while (low <= h) {
+      int mid = (low + h);
+      if (nums[mid] == target) {
+        return mid;
+      } else if (nums[mid] < target) {
+        low = mid + 1;
+      } else {
+        h = mid - 1;
+      }
+    }
+
+    nums.add(target);
+    nums.sort();
+    return nums.indexOf(target);
+  }
 }
