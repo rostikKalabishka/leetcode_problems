@@ -2,7 +2,7 @@ import 'dart:math';
 
 void main() {
   final solution = Solution();
-  print(solution.findMin([1, 3, 5]));
+  print(solution.containsDuplicate([1, 2, 3, 1]));
 }
 
 //349. Intersection of Two Arrays
@@ -151,9 +151,18 @@ void main() {
 // }
 
 //154. Find Minimum in Rotated Sorted Array II
+// class Solution {
+//   int findMin(List<int> nums) {
+//     nums.sort();
+//     return nums[0];
+//   }
+// }
+
+//217. Contains Duplicate
 class Solution {
-  int findMin(List<int> nums) {
-    nums.sort();
-    return nums[0];
+  containsDuplicate(List<int> nums) {
+    var setList = nums.toSet();
+
+    return setList.length != nums.length;
   }
 }
