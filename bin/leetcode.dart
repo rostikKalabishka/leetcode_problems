@@ -2,7 +2,7 @@ import 'dart:math';
 
 void main() {
   final solution = Solution();
-  print(solution.myPow(2, 10));
+  print(solution.lengthOfLastWord('Hello World'));
 }
 
 //349. Intersection of Two Arrays
@@ -91,6 +91,11 @@ void main() {
 // }
 
 //50. Pow(x, n)
+// class Solution {
+//   double myPow(double x, int n) => pow(x, n).toDouble();
+// }
+
+//58. Length of Last Word
 class Solution {
-  double myPow(double x, int n) => pow(x, n).toDouble();
+  lengthOfLastWord(String s) => s.trim().split(' ').last.length;
 }
