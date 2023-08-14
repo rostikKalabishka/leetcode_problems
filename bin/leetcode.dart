@@ -203,6 +203,11 @@ class Solution {
   }
 }
 
+//1108. Defanging an IP Address (JS)
+// var defangIPaddr = function(address) {
+//     return address.replaceAll('.', '[.]');
+// };
+
 void main() {
   final solution = Solution();
   print(solution.sortedSquares([-4, -1, 0, 3, 10]));
