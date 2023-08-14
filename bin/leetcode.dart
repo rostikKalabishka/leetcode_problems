@@ -169,25 +169,30 @@ import 'dart:math';
 // }
 
 //704. Binary Search
+// class Solution {
+//   int search(List<int> sortedList, int target) {
+//     int low = 0;
+//     int high = sortedList.length - 1;
+//     while (low <= high) {
+//       int mid = (low + high);
+//       if (sortedList[mid] == target) {
+//         return mid;
+//       } else if (sortedList[mid] < target) {
+//         low = mid + 1;
+//       } else {
+//         high = mid - 1;
+//       }
+//     }
+//     return -1;
+//   }
+// }
+
+//709. To Lower Case
 class Solution {
-  int search(List<int> sortedList, int target) {
-    int low = 0;
-    int high = sortedList.length - 1;
-    while (low <= high) {
-      int mid = (low + high);
-      if (sortedList[mid] == target) {
-        return mid;
-      } else if (sortedList[mid] < target) {
-        low = mid + 1;
-      } else {
-        high = mid - 1;
-      }
-    }
-    return -1;
-  }
+  String toLowerCase(String s) => s.toLowerCase();
 }
 
 void main() {
   final solution = Solution();
-  print(solution.search([-1, 0, 3, 5, 9, 12], 9));
+  print(solution.toLowerCase('Hello'));
 }
