@@ -194,21 +194,26 @@ import 'dart:math';
 
 //977. Squares of a Sorted Array
 
-class Solution {
-  List<int> sortedSquares(List<int> nums) {
-    List<int> res = [];
-    res = nums.map((el) => el * el).toList();
-    res.sort();
-    return res;
-  }
-}
+// class Solution {
+//   List<int> sortedSquares(List<int> nums) {
+//     List<int> res = [];
+//     res = nums.map((el) => el * el).toList();
+//     res.sort();
+//     return res;
+//   }
+// }
 
 //1108. Defanging an IP Address (JS)
 // var defangIPaddr = function(address) {
 //     return address.replaceAll('.', '[.]');
 // };
 
+// 2235. Add Two Integers
+class Solution {
+  int sum(int num1, int num2) => num1 + num2;
+}
+
 void main() {
   final solution = Solution();
-  print(solution.sortedSquares([-4, -1, 0, 3, 10]));
+  // print(solution.sortedSquares([-4, -1, 0, 3, 10]));
 }
