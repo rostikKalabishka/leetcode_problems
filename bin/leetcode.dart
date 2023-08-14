@@ -2,7 +2,7 @@ import 'dart:math';
 
 void main() {
   final solution = Solution();
-  print(solution.plusOne([1, 2, 3]));
+  print(solution.addBinary('11', '1'));
 }
 
 //349. Intersection of Two Arrays
@@ -101,12 +101,18 @@ void main() {
 // }
 
 //66. Plus One
-class Solution {
-  List<int> plusOne(List<int> digits) {
-    BigInt num = BigInt.parse(digits.join(''));
-    num += BigInt.one;
+// class Solution {
+//   List<int> plusOne(List<int> digits) {
+//     BigInt num = BigInt.parse(digits.join(''));
+//     num += BigInt.one;
 
-    List<int> res = num.toString().split('').map((e) => int.parse(e)).toList();
-    return res;
-  }
+//     List<int> res = num.toString().split('').map((e) => int.parse(e)).toList();
+//     return res;
+//   }
+// }
+
+//67. Add Binary
+class Solution {
+  addBinary(String a, String b) =>
+      (BigInt.parse(a, radix: 2) + BigInt.parse(b, radix: 2)).toRadixString(2);
 }
