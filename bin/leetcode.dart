@@ -2,7 +2,7 @@ import 'dart:math';
 
 void main() {
   final solution = Solution();
-  print(solution.search([2, 5, 6, 0, 0, 1, 2], 0));
+  print(solution.findMin([3, 4, 5, 1, 2]));
 }
 
 //349. Intersection of Two Arrays
@@ -123,21 +123,29 @@ void main() {
 // }
 
 //81. Search in Rotated Sorted Array II
+// class Solution {
+//   bool search(List<int> nums, int target) {
+//     nums.sort();
+//     int low = 0;
+//     int high = nums.length - 1;
+//     while (low <= high) {
+//       int mid = (low + high);
+//       if (nums[mid] == target) {
+//         return true;
+//       } else if (nums[mid] < target) {
+//         low = mid + 1;
+//       } else {
+//         high = mid - 1;
+//       }
+//     }
+//     return false;
+//   }
+// }
+
+// 153. Find Minimum in Rotated Sorted Array
 class Solution {
-  bool search(List<int> nums, int target) {
+  int findMin(List<int> nums) {
     nums.sort();
-    int low = 0;
-    int high = nums.length - 1;
-    while (low <= high) {
-      int mid = (low + high);
-      if (nums[mid] == target) {
-        return true;
-      } else if (nums[mid] < target) {
-        low = mid + 1;
-      } else {
-        high = mid - 1;
-      }
-    }
-    return false;
+    return nums[0];
   }
 }
