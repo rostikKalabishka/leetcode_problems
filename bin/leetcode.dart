@@ -163,12 +163,31 @@ import 'dart:math';
 // }
 
 //415. Add Strings
+// class Solution {
+//   String addStrings(String num1, String num2) =>
+//       (BigInt.parse(num1) + BigInt.parse(num2)).toString();
+// }
+
+//704. Binary Search
 class Solution {
-  String addStrings(String num1, String num2) =>
-      (BigInt.parse(num1) + BigInt.parse(num2)).toString();
+  int search(List<int> sortedList, int target) {
+    int low = 0;
+    int high = sortedList.length - 1;
+    while (low <= high) {
+      int mid = (low + high);
+      if (sortedList[mid] == target) {
+        return mid;
+      } else if (sortedList[mid] < target) {
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+    return -1;
+  }
 }
 
 void main() {
   final solution = Solution();
-  print(solution.addStrings('11', '123'));
+  print(solution.search([-1, 0, 3, 5, 9, 12], 9));
 }
