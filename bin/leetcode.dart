@@ -2,7 +2,7 @@ import 'dart:math';
 
 void main() {
   final solution = Solution();
-  print(solution.mySqrt(4));
+  print(solution.search([2, 5, 6, 0, 0, 1, 2], 0));
 }
 
 //349. Intersection of Two Arrays
@@ -118,6 +118,26 @@ void main() {
 // }
 
 //69. Sqrt(x)
+// class Solution {
+//   int mySqrt(int x) => sqrt(x).floor();
+// }
+
+//81. Search in Rotated Sorted Array II
 class Solution {
-  int mySqrt(int x) => sqrt(x).floor();
+  bool search(List<int> nums, int target) {
+    nums.sort();
+    int low = 0;
+    int high = nums.length - 1;
+    while (low <= high) {
+      int mid = (low + high);
+      if (nums[mid] == target) {
+        return true;
+      } else if (nums[mid] < target) {
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+    return false;
+  }
 }
