@@ -1,10 +1,5 @@
 import 'dart:math';
 
-void main() {
-  final solution = Solution();
-  print(solution.containsDuplicate([1, 2, 3, 1]));
-}
-
 //349. Intersection of Two Arrays
 // class Solution {
 //   List<int> intersection(List<int> nums1, List<int> nums2) {
@@ -159,10 +154,21 @@ void main() {
 // }
 
 //217. Contains Duplicate
-class Solution {
-  containsDuplicate(List<int> nums) {
-    var setList = nums.toSet();
+// class Solution {
+//   containsDuplicate(List<int> nums) {
+//     var setList = nums.toSet();
 
-    return setList.length != nums.length;
-  }
+//     return setList.length != nums.length;
+//   }
+// }
+
+//415. Add Strings
+class Solution {
+  String addStrings(String num1, String num2) =>
+      (BigInt.parse(num1) + BigInt.parse(num2)).toString();
+}
+
+void main() {
+  final solution = Solution();
+  print(solution.addStrings('11', '123'));
 }
