@@ -188,11 +188,22 @@ import 'dart:math';
 // }
 
 //709. To Lower Case
+// class Solution {
+//   String toLowerCase(String s) => s.toLowerCase();
+// }
+
+//977. Squares of a Sorted Array
+
 class Solution {
-  String toLowerCase(String s) => s.toLowerCase();
+  List<int> sortedSquares(List<int> nums) {
+    List<int> res = [];
+    res = nums.map((el) => el * el).toList();
+    res.sort();
+    return res;
+  }
 }
 
 void main() {
   final solution = Solution();
-  print(solution.toLowerCase('Hello'));
+  print(solution.sortedSquares([-4, -1, 0, 3, 10]));
 }
