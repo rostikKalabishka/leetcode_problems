@@ -2,7 +2,7 @@ import 'dart:math';
 
 void main() {
   final solution = Solution();
-  print(solution.lengthOfLastWord('Hello World'));
+  print(solution.plusOne([1, 2, 3]));
 }
 
 //349. Intersection of Two Arrays
@@ -96,6 +96,17 @@ void main() {
 // }
 
 //58. Length of Last Word
+// class Solution {
+//   lengthOfLastWord(String s) => s.trim().split(' ').last.length;
+// }
+
+//66. Plus One
 class Solution {
-  lengthOfLastWord(String s) => s.trim().split(' ').last.length;
+  List<int> plusOne(List<int> digits) {
+    BigInt num = BigInt.parse(digits.join(''));
+    num += BigInt.one;
+
+    List<int> res = num.toString().split('').map((e) => int.parse(e)).toList();
+    return res;
+  }
 }
