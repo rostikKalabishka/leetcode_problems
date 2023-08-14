@@ -1,6 +1,6 @@
 void main() {
   final solution = Solution();
-  print(solution.isPalindrome(121));
+  print(solution.search([4, 5, 6, 7, 0, 1, 2], 0));
 }
 
 //349. Intersection of Two Arrays
@@ -53,7 +53,13 @@ void main() {
 // }
 
 //9. Palindrome Number
+// class Solution {
+//   bool isPalindrome(int x) =>
+//       x.toString().split('').reversed.join() == x.toString() ? true : false;
+// }
+
+// 33. Search in Rotated Sorted Array
+
 class Solution {
-  bool isPalindrome(int x) =>
-      x.toString().split('').reversed.join() == x.toString() ? true : false;
+  int search(List<int> nums, int target) => nums.indexOf(target);
 }
