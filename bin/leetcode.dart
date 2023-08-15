@@ -226,21 +226,34 @@ import 'dart:math';
 // }
 
 //1. Two Sum
-class Solution {
-  List<int> twoSum(List<int> nums, int target) {
-    for (var i = 0; i < nums.length - 1; i++) {
-      for (var j = i + 1; j < nums.length; j++) {
-        if (nums[i] + nums[j] == target) {
-          return [i, j];
-        }
-      }
-    }
+// class Solution {
+//   List<int> twoSum(List<int> nums, int target) {
+//     for (var i = 0; i < nums.length - 1; i++) {
+//       for (var j = i + 1; j < nums.length; j++) {
+//         if (nums[i] + nums[j] == target) {
+//           return [i, j];
+//         }
+//       }
+//     }
 
-    return [];
+//     return [];
+//   }
+// }
+
+//26. Remove Duplicates from Sorted Array
+
+class Solution {
+  removeDuplicates(List<int> nums) {
+    final set = nums.toSet().toList();
+    nums.length = 0;
+    nums.addAll(set);
+    return nums.length;
   }
+  //or
+  //nums.toSet().toList().length;
 }
 
 void main() {
   final solution = Solution();
-  print(solution.twoSum([3, 2, 4], 6));
+  print(solution.removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
 }
