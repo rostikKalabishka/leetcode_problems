@@ -214,18 +214,33 @@ import 'dart:math';
 // }
 
 // 2469. Convert the Temperature
+// class Solution {
+//   List<double> convertTemperature(double celsius) {
+//     List<double> arr = [];
+//     double kelvin = celsius + 273.15;
+//     double fahrenheit = celsius * 1.8 + 32.00;
+//     arr.add(kelvin);
+//     arr.add(fahrenheit);
+//     return arr;
+//   }
+// }
+
+//1. Two Sum
 class Solution {
-  List<double> convertTemperature(double celsius) {
-    List<double> arr = [];
-    double kelvin = celsius + 273.15;
-    double fahrenheit = celsius * 1.8 + 32.00;
-    arr.add(kelvin);
-    arr.add(fahrenheit);
-    return arr;
+  List<int> twoSum(List<int> nums, int target) {
+    for (var i = 0; i < nums.length - 1; i++) {
+      for (var j = i + 1; j < nums.length; j++) {
+        if (nums[i] + nums[j] == target) {
+          return [i, j];
+        }
+      }
+    }
+
+    return [];
   }
 }
 
 void main() {
   final solution = Solution();
-  print(solution.convertTemperature(36.50));
+  print(solution.twoSum([3, 2, 4], 6));
 }
