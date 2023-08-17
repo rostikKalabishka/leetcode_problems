@@ -287,23 +287,42 @@ import 'dart:math';
 // }
 
 //852. Peak Index in a Mountain Array
-class Solution {
-  peakIndexInMountainArray(List<int> arr) {
-    var arr2 = List<int>.from(arr);
-    arr2.sort();
-    var max = arr2.last;
+// class Solution {
+//   peakIndexInMountainArray(List<int> arr) {
+//     var arr2 = List<int>.from(arr);
+//     arr2.sort();
+//     var max = arr2.last;
 
-    for (var i = 0; i < arr.length; i++) {
-      if (arr[i] == max) {
-        return i;
+//     for (var i = 0; i < arr.length; i++) {
+//       if (arr[i] == max) {
+//         return i;
+//       }
+//     }
+//   }
+// }
+
+//283. Move Zeroes
+
+class Solution {
+  void moveZeroes(List<int> nums) {
+    int nonZeroIndex = 0;
+
+    for (var i = 0; i < nums.length; i++) {
+      if (nums[i] != 0) {
+        nums[nonZeroIndex] = nums[i];
+        nonZeroIndex++;
       }
+    }
+
+    for (var i = nonZeroIndex; i < nums.length; i++) {
+      nums[i] = 0;
     }
   }
 }
 
 void main() {
   final solution = Solution();
-  print(solution.peakIndexInMountainArray([0, 1, 0]));
-  print(solution.peakIndexInMountainArray([0, 2, 1, 0]));
-  print(solution.peakIndexInMountainArray([0, 10, 5, 2]));
+  List<int> nums1 = [0, 1, 0, 3, 12];
+  solution.moveZeroes(nums1);
+  print(nums1);
 }
