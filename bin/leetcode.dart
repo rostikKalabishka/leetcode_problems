@@ -242,18 +242,37 @@ import 'dart:math';
 
 //26. Remove Duplicates from Sorted Array
 
+// class Solution {
+//   removeDuplicates(List<int> nums) {
+//     final set = nums.toSet().toList();
+//     nums.length = 0;
+//     nums.addAll(set);
+//     return nums.length;
+//   }
+//   //or
+//   //nums.toSet().toList().length;
+// }
+
+// 242. Valid Anagram
 class Solution {
-  removeDuplicates(List<int> nums) {
-    final set = nums.toSet().toList();
-    nums.length = 0;
-    nums.addAll(set);
-    return nums.length;
+  isAnagram(String s, String t) {
+    var s1 = s.split('');
+    s1.sort();
+    var t1 = t.split('');
+    t1.sort();
+    if (t1.length != s1.length) return false;
+
+    for (var i = 0; i < s1.length; i++) {
+      if (s1[i] != t1[i]) {
+        return false;
+      }
+    }
+    return true;
   }
-  //or
-  //nums.toSet().toList().length;
 }
 
 void main() {
   final solution = Solution();
-  print(solution.removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
+  print(solution.isAnagram('anagram', 'nagaram'));
+  print(solution.isAnagram('rat', 'car'));
 }
