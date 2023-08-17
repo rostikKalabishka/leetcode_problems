@@ -303,26 +303,37 @@ import 'dart:math';
 
 //283. Move Zeroes
 
+// class Solution {
+//   void moveZeroes(List<int> nums) {
+//     int nonZeroIndex = 0;
+
+//     for (var i = 0; i < nums.length; i++) {
+//       if (nums[i] != 0) {
+//         nums[nonZeroIndex] = nums[i];
+//         nonZeroIndex++;
+//       }
+//     }
+
+//     for (var i = nonZeroIndex; i < nums.length; i++) {
+//       nums[i] = 0;
+//     }
+//   }
+// }
+
+//557. Reverse Words in a String III
+
 class Solution {
-  void moveZeroes(List<int> nums) {
-    int nonZeroIndex = 0;
-
-    for (var i = 0; i < nums.length; i++) {
-      if (nums[i] != 0) {
-        nums[nonZeroIndex] = nums[i];
-        nonZeroIndex++;
-      }
-    }
-
-    for (var i = nonZeroIndex; i < nums.length; i++) {
-      nums[i] = 0;
-    }
+  String reverseWords(String s) {
+    return s
+        .split(' ')
+        .map((word) => word.split('').reversed.join(''))
+        .join(' ');
   }
 }
 
 void main() {
   final solution = Solution();
-  List<int> nums1 = [0, 1, 0, 3, 12];
-  solution.moveZeroes(nums1);
-  print(nums1);
+
+  print(solution.reverseWords("Let's take LeetCode contest"));
+  print(solution.reverseWords("God Ding"));
 }
