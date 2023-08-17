@@ -254,25 +254,40 @@ import 'dart:math';
 // }
 
 // 242. Valid Anagram
-class Solution {
-  isAnagram(String s, String t) {
-    var s1 = s.split('');
-    s1.sort();
-    var t1 = t.split('');
-    t1.sort();
-    if (t1.length != s1.length) return false;
+// class Solution {
+//   isAnagram(String s, String t) {
+//     var s1 = s.split('');
+//     s1.sort();
+//     var t1 = t.split('');
+//     t1.sort();
+//     if (t1.length != s1.length) return false;
 
-    for (var i = 0; i < s1.length; i++) {
-      if (s1[i] != t1[i]) {
-        return false;
+//     for (var i = 0; i < s1.length; i++) {
+//       if (s1[i] != t1[i]) {
+//         return false;
+//       }
+//     }
+//     return true;
+//   }
+// }
+
+// 27. Remove Element
+class Solution {
+  int removeElement(List<int> nums, int val) {
+    int k = 0;
+    for (int i = 0; i < nums.length; i++) {
+      if (nums[i] != val) {
+        nums[k] = nums[i];
+        k++;
       }
     }
-    return true;
+
+    return k;
   }
 }
 
 void main() {
   final solution = Solution();
-  print(solution.isAnagram('anagram', 'nagaram'));
-  print(solution.isAnagram('rat', 'car'));
+  print(solution.removeElement([3, 2, 2, 3], 3));
+  print(solution.removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2));
 }
