@@ -272,22 +272,38 @@ import 'dart:math';
 // }
 
 // 27. Remove Element
+// class Solution {
+//   int removeElement(List<int> nums, int val) {
+//     int k = 0;
+//     for (int i = 0; i < nums.length; i++) {
+//       if (nums[i] != val) {
+//         nums[k] = nums[i];
+//         k++;
+//       }
+//     }
+
+//     return k;
+//   }
+// }
+
+//852. Peak Index in a Mountain Array
 class Solution {
-  int removeElement(List<int> nums, int val) {
-    int k = 0;
-    for (int i = 0; i < nums.length; i++) {
-      if (nums[i] != val) {
-        nums[k] = nums[i];
-        k++;
+  peakIndexInMountainArray(List<int> arr) {
+    var arr2 = List<int>.from(arr);
+    arr2.sort();
+    var max = arr2.last;
+
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] == max) {
+        return i;
       }
     }
-
-    return k;
   }
 }
 
 void main() {
   final solution = Solution();
-  print(solution.removeElement([3, 2, 2, 3], 3));
-  print(solution.removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2));
+  print(solution.peakIndexInMountainArray([0, 1, 0]));
+  print(solution.peakIndexInMountainArray([0, 2, 1, 0]));
+  print(solution.peakIndexInMountainArray([0, 10, 5, 2]));
 }
