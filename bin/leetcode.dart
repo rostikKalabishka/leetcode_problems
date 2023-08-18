@@ -332,15 +332,25 @@ import 'dart:math';
 // }
 
 // 28. Find the Index of the First Occurrence in a String
+// class Solution {
+//   int strStr(String haystack, String needle) {
+//     return haystack.indexOf(needle);
+//   }
+// }
+
+//151. Reverse Words in a String
+
 class Solution {
-  int strStr(String haystack, String needle) {
-    return haystack.indexOf(needle);
+  String reverseWords(String s) {
+    List<String> words = s.split(' ').where((word) => word.isNotEmpty).toList();
+    return words.reversed.join(' ').trim();
   }
 }
 
 void main() {
   final solution = Solution();
 
-  print(solution.strStr("sadbutsad", "sad"));
-  print(solution.strStr("leetcode", "leeto"));
+  print(solution.reverseWords("the sky is blue"));
+  print(solution.reverseWords("  hello world  "));
+  print(solution.reverseWords("a good   example"));
 }
