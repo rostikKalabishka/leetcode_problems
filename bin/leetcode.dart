@@ -322,18 +322,25 @@ import 'dart:math';
 
 //557. Reverse Words in a String III
 
+// class Solution {
+//   String reverseWords(String s) {
+//     return s
+//         .split(' ')
+//         .map((word) => word.split('').reversed.join(''))
+//         .join(' ');
+//   }
+// }
+
+// 28. Find the Index of the First Occurrence in a String
 class Solution {
-  String reverseWords(String s) {
-    return s
-        .split(' ')
-        .map((word) => word.split('').reversed.join(''))
-        .join(' ');
+  int strStr(String haystack, String needle) {
+    return haystack.indexOf(needle);
   }
 }
 
 void main() {
   final solution = Solution();
 
-  print(solution.reverseWords("Let's take LeetCode contest"));
-  print(solution.reverseWords("God Ding"));
+  print(solution.strStr("sadbutsad", "sad"));
+  print(solution.strStr("leetcode", "leeto"));
 }
