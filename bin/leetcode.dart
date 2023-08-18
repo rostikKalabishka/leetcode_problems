@@ -340,17 +340,28 @@ import 'dart:math';
 
 //151. Reverse Words in a String
 
+// class Solution {
+//   String reverseWords(String s) {
+//     List<String> words = s.split(' ').where((word) => word.isNotEmpty).toList();
+//     return words.reversed.join(' ').trim();
+//   }
+// }
+
+// 75. Sort Colors
 class Solution {
-  String reverseWords(String s) {
-    List<String> words = s.split(' ').where((word) => word.isNotEmpty).toList();
-    return words.reversed.join(' ').trim();
+  void sortColors(List<int> nums) {
+    nums.sort();
   }
 }
 
 void main() {
   final solution = Solution();
 
-  print(solution.reverseWords("the sky is blue"));
-  print(solution.reverseWords("  hello world  "));
-  print(solution.reverseWords("a good   example"));
+  List<int> colors1 = [2, 0, 2, 1, 1, 0];
+  solution.sortColors(colors1);
+  print(colors1);
+
+  List<int> colors2 = [2, 0, 1];
+  solution.sortColors(colors2);
+  print(colors2);
 }
