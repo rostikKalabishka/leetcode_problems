@@ -348,9 +348,22 @@ import 'dart:math';
 // }
 
 // 75. Sort Colors
+// class Solution {
+//   void sortColors(List<int> nums) {
+//     nums.sort();
+//   }
+// }
 class Solution {
   void sortColors(List<int> nums) {
-    nums.sort();
+    for (int i = 0; i < nums.length - 1; i++) {
+      for (int j = i; j < nums.length; j++) {
+        if (nums[j] < nums[i]) {
+          int temp = nums[j];
+          nums[j] = nums[i];
+          nums[i] = temp;
+        }
+      }
+    }
   }
 }
 
