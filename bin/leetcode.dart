@@ -353,28 +353,45 @@ import 'dart:math';
 //     nums.sort();
 //   }
 // }
+// class Solution {
+//   void sortColors(List<int> nums) {
+//     for (int i = 0; i < nums.length - 1; i++) {
+//       for (int j = i; j < nums.length; j++) {
+//         if (nums[j] < nums[i]) {
+//           int temp = nums[j];
+//           nums[j] = nums[i];
+//           nums[i] = temp;
+//         }
+//       }
+//     }
+//   }
+// }
+
+//383. Ransom Note
+
 class Solution {
-  void sortColors(List<int> nums) {
-    for (int i = 0; i < nums.length - 1; i++) {
-      for (int j = i; j < nums.length; j++) {
-        if (nums[j] < nums[i]) {
-          int temp = nums[j];
-          nums[j] = nums[i];
-          nums[i] = temp;
-        }
-      }
+  bool canConstruct(String ransomNote, String magazine) {
+    var charCount = List<int>.filled(26, 0);
+
+    for (var char in magazine.runes) {
+      charCount[char - 'a'.runes.first]++;
     }
+
+    for (var char in ransomNote.runes) {
+      if (charCount[char - 'a'.runes.first] == 0) {
+        return false;
+      }
+      charCount[char - 'a'.runes.first]--;
+    }
+
+    return true;
   }
 }
 
 void main() {
   final solution = Solution();
 
-  List<int> colors1 = [2, 0, 2, 1, 1, 0];
-  solution.sortColors(colors1);
-  print(colors1);
-
-  List<int> colors2 = [2, 0, 1];
-  solution.sortColors(colors2);
-  print(colors2);
+  print(solution.canConstruct("a", 'b'));
+  print(solution.canConstruct("aa", 'ab'));
+  print(solution.canConstruct("aa", 'aab'));
 }
