@@ -369,29 +369,40 @@ import 'dart:math';
 
 //383. Ransom Note
 
+// class Solution {
+//   bool canConstruct(String ransomNote, String magazine) {
+//     var charCount = List<int>.filled(26, 0);
+
+//     for (var char in magazine.runes) {
+//       charCount[char - 'a'.runes.first]++;
+//     }
+
+//     for (var char in ransomNote.runes) {
+//       if (charCount[char - 'a'.runes.first] == 0) {
+//         return false;
+//       }
+//       charCount[char - 'a'.runes.first]--;
+//     }
+
+//     return true;
+//   }
+// }
+
+//125. Valid Palindrome
 class Solution {
-  bool canConstruct(String ransomNote, String magazine) {
-    var charCount = List<int>.filled(26, 0);
+  bool isPalindrome(String s) {
+    String cleanStr = s.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '').toLowerCase();
 
-    for (var char in magazine.runes) {
-      charCount[char - 'a'.runes.first]++;
-    }
+    String reversed = cleanStr.split('').reversed.join('');
 
-    for (var char in ransomNote.runes) {
-      if (charCount[char - 'a'.runes.first] == 0) {
-        return false;
-      }
-      charCount[char - 'a'.runes.first]--;
-    }
-
-    return true;
+    return cleanStr == reversed;
   }
 }
 
 void main() {
   final solution = Solution();
 
-  print(solution.canConstruct("a", 'b'));
-  print(solution.canConstruct("aa", 'ab'));
-  print(solution.canConstruct("aa", 'aab'));
+  print(solution.isPalindrome("A man, a plan, a canal: Panama"));
+  print(solution.isPalindrome("race a car"));
+  print(solution.isPalindrome(" "));
 }
