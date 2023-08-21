@@ -389,20 +389,45 @@ import 'dart:math';
 // }
 
 //125. Valid Palindrome
+// class Solution {
+//   bool isPalindrome(String s) {
+//     String cleanStr = s.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '').toLowerCase();
+
+//     String reversed = cleanStr.split('').reversed.join('');
+
+//     return cleanStr == reversed;
+//   }
+// }
+
+//504. Base 7
+
 class Solution {
-  bool isPalindrome(String s) {
-    String cleanStr = s.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '').toLowerCase();
+  String convertToBase7(int num) {
+    if (num == 0) {
+      return "0";
+    }
 
-    String reversed = cleanStr.split('').reversed.join('');
+    bool isNegative = num < 0;
+    num = isNegative ? -num : num;
 
-    return cleanStr == reversed;
+    String result = "";
+    while (num > 0) {
+      int remainder = num % 7;
+      result = "$remainder$result";
+      num ~/= 7;
+    }
+
+    if (isNegative) {
+      result = "-$result";
+    }
+
+    return result;
   }
 }
 
 void main() {
   final solution = Solution();
 
-  print(solution.isPalindrome("A man, a plan, a canal: Panama"));
-  print(solution.isPalindrome("race a car"));
-  print(solution.isPalindrome(" "));
+  print(solution.convertToBase7(100));
+  print(solution.convertToBase7(-7));
 }
