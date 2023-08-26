@@ -427,23 +427,35 @@ import 'dart:math';
 
 //258. Add Digits
 
+// class Solution {
+//   int addDigits(int num) {
+//     var b = num.toString().split('').map((e) => int.parse(e)).toList();
+//     var sum = b.reduce((value, element) => value + element);
+
+//     while (sum >= 10) {
+//       b = sum.toString().split('').map((e) => int.parse(e)).toList();
+//       sum = b.reduce((value, element) => value + element);
+//     }
+
+//     return sum;
+//   }
+// }
+//136. Single Number
+
 class Solution {
-  int addDigits(int num) {
-    var b = num.toString().split('').map((e) => int.parse(e)).toList();
-    var sum = b.reduce((value, element) => value + element);
-
-    while (sum >= 10) {
-      b = sum.toString().split('').map((e) => int.parse(e)).toList();
-      sum = b.reduce((value, element) => value + element);
+  int singleNumber(List<int> nums) {
+    int result = 0;
+    for (int num in nums) {
+      result ^= num; //xor
     }
-
-    return sum;
+    return result;
   }
 }
 
 void main() {
   final solution = Solution();
 
-  print(solution.addDigits(38));
-  print(solution.addDigits(0));
+  print(solution.singleNumber([2, 2, 1]));
+  print(solution.singleNumber([4, 1, 2, 1, 2]));
+  print(solution.singleNumber([1]));
 }
