@@ -401,33 +401,49 @@ import 'dart:math';
 
 //504. Base 7
 
+// class Solution {
+//   String convertToBase7(int num) {
+//     if (num == 0) {
+//       return "0";
+//     }
+
+//     bool isNegative = num < 0;
+//     num = isNegative ? -num : num;
+
+//     String result = "";
+//     while (num > 0) {
+//       int remainder = num % 7;
+//       result = "$remainder$result";
+//       num ~/= 7;
+//     }
+
+//     if (isNegative) {
+//       result = "-$result";
+//     }
+
+//     return result;
+//   }
+// }
+
+//258. Add Digits
+
 class Solution {
-  String convertToBase7(int num) {
-    if (num == 0) {
-      return "0";
+  int addDigits(int num) {
+    var b = num.toString().split('').map((e) => int.parse(e)).toList();
+    var sum = b.reduce((value, element) => value + element);
+
+    while (sum >= 10) {
+      b = sum.toString().split('').map((e) => int.parse(e)).toList();
+      sum = b.reduce((value, element) => value + element);
     }
 
-    bool isNegative = num < 0;
-    num = isNegative ? -num : num;
-
-    String result = "";
-    while (num > 0) {
-      int remainder = num % 7;
-      result = "$remainder$result";
-      num ~/= 7;
-    }
-
-    if (isNegative) {
-      result = "-$result";
-    }
-
-    return result;
+    return sum;
   }
 }
 
 void main() {
   final solution = Solution();
 
-  print(solution.convertToBase7(100));
-  print(solution.convertToBase7(-7));
+  print(solution.addDigits(38));
+  print(solution.addDigits(0));
 }
