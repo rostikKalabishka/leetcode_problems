@@ -442,20 +442,42 @@ import 'dart:math';
 // }
 //136. Single Number
 
+// class Solution {
+//   int singleNumber(List<int> nums) {
+//     int result = 0;
+//     for (int num in nums) {
+//       result ^= num; //xor
+//     }
+//     return result;
+//   }
+// }
+
+// 338. Counting Bits
+
 class Solution {
-  int singleNumber(List<int> nums) {
-    int result = 0;
-    for (int num in nums) {
-      result ^= num; //xor
+  List<int> countBits(int n) {
+    List<int> result = [];
+    for (int i = 0; i <= n; i++) {
+      result.add(countOnesInBinary(i));
     }
     return result;
+  }
+
+  int countOnesInBinary(int number) {
+    int count = 0;
+    while (number > 0) {
+      if (number % 2 == 1) {
+        count++;
+      }
+      number = number ~/ 2;
+    }
+    return count;
   }
 }
 
 void main() {
   final solution = Solution();
 
-  print(solution.singleNumber([2, 2, 1]));
-  print(solution.singleNumber([4, 1, 2, 1, 2]));
-  print(solution.singleNumber([1]));
+  print(solution.countBits(2));
+  print(solution.countBits(5));
 }
