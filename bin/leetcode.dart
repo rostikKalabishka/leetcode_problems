@@ -454,30 +454,48 @@ import 'dart:math';
 
 // 338. Counting Bits
 
-class Solution {
-  List<int> countBits(int n) {
-    List<int> result = [];
-    for (int i = 0; i <= n; i++) {
-      result.add(countOnesInBinary(i));
-    }
-    return result;
-  }
+// class Solution {
+//   List<int> countBits(int n) {
+//     List<int> result = [];
+//     for (int i = 0; i <= n; i++) {
+//       result.add(countOnesInBinary(i));
+//     }
+//     return result;
+//   }
 
-  int countOnesInBinary(int number) {
-    int count = 0;
-    while (number > 0) {
-      if (number % 2 == 1) {
-        count++;
+//   int countOnesInBinary(int number) {
+//     int count = 0;
+//     while (number > 0) {
+//       if (number % 2 == 1) {
+//         count++;
+//       }
+//       number = number ~/ 2;
+//     }
+//     return count;
+//   }
+// }
+
+// 268. Missing Number
+
+class Solution {
+  int missingNumber(List<int> nums) {
+    nums.sort();
+    int max = nums.last;
+
+    for (int i = 0; i <= max; i++) {
+      if (i >= nums.length || nums[i] != i) {
+        return i;
       }
-      number = number ~/ 2;
     }
-    return count;
+
+    return max + 1;
   }
 }
 
 void main() {
   final solution = Solution();
 
-  print(solution.countBits(2));
-  print(solution.countBits(5));
+  print(solution.missingNumber([3, 0, 1]));
+  print(solution.missingNumber([0, 1]));
+  print(solution.missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]));
 }
