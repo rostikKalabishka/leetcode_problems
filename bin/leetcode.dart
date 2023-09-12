@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:test/test.dart';
+
 //349. Intersection of Two Arrays
 // class Solution {
 //   List<int> intersection(List<int> nums1, List<int> nums2) {
@@ -477,25 +479,73 @@ import 'dart:math';
 
 // 268. Missing Number
 
-class Solution {
-  int missingNumber(List<int> nums) {
-    nums.sort();
-    int max = nums.last;
+// class Solution {
+//   int missingNumber(List<int> nums) {
+//     nums.sort();
+//     int max = nums.last;
 
-    for (int i = 0; i <= max; i++) {
-      if (i >= nums.length || nums[i] != i) {
-        return i;
+//     for (int i = 0; i <= max; i++) {
+//       if (i >= nums.length || nums[i] != i) {
+//         return i;
+//       }
+//     }
+
+//     return max + 1;
+//   }
+// }
+
+// class Solution {
+//   minExtraChar(String s, List<String> dictionary) {
+//     var foundWords = <String>[];
+
+//     for (var i = 0; i < dictionary.length; i++) {
+//       if (s.contains(dictionary[i])) {
+//         foundWords.add(dictionary[i]);
+//       }
+//     }
+//     return s.length - foundWords.join().length;
+//   }
+// }
+//448. Find All Numbers Disappeared in an Array
+
+class Solution {
+  List<int> findDisappearedNumbers(List<int> nums) {
+    nums.sort();
+
+    List<int> list = [];
+    List<int> res = [];
+
+    for (var i = 1; i <= nums.length; i++) {
+      list.add(i);
+    }
+
+    int i = 0;
+    int j = 0;
+
+    while (i < list.length && j < nums.length) {
+      if (list[i] < nums[j]) {
+        res.add(list[i]);
+        i++;
+      } else if (list[i] > nums[j]) {
+        j++;
+      } else {
+        i++;
+        j++;
       }
     }
 
-    return max + 1;
+    while (i < list.length) {
+      res.add(list[i]);
+      i++;
+    }
+
+    return res;
   }
 }
 
 void main() {
   final solution = Solution();
 
-  print(solution.missingNumber([3, 0, 1]));
-  print(solution.missingNumber([0, 1]));
-  print(solution.missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]));
+  print(solution.findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]));
+  print(solution.findDisappearedNumbers([1, 1]));
 }
