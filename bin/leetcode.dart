@@ -1,7 +1,5 @@
 import 'dart:math';
 
-import 'package:test/test.dart';
-
 //349. Intersection of Two Arrays
 // class Solution {
 //   List<int> intersection(List<int> nums1, List<int> nums2) {
@@ -508,38 +506,49 @@ import 'package:test/test.dart';
 // }
 //448. Find All Numbers Disappeared in an Array
 
+// class Solution {
+//   List<int> findDisappearedNumbers(List<int> nums) {
+//     nums.sort();
+
+//     List<int> list = [];
+//     List<int> res = [];
+
+//     for (var i = 1; i <= nums.length; i++) {
+//       list.add(i);
+//     }
+
+//     int i = 0;
+//     int j = 0;
+
+//     while (i < list.length && j < nums.length) {
+//       if (list[i] < nums[j]) {
+//         res.add(list[i]);
+//         i++;
+//       } else if (list[i] > nums[j]) {
+//         j++;
+//       } else {
+//         i++;
+//         j++;
+//       }
+//     }
+
+//     while (i < list.length) {
+//       res.add(list[i]);
+//       i++;
+//     }
+
+//     return res;
+//   }
+// }
+
 class Solution {
   List<int> findDisappearedNumbers(List<int> nums) {
-    nums.sort();
-
-    List<int> list = [];
-    List<int> res = [];
-
-    for (var i = 1; i <= nums.length; i++) {
-      list.add(i);
+    Set set = {...nums};
+    List<int> arr = [];
+    for (int i = 1; i <= nums.length; i++) {
+      if (!set.contains(i)) arr.add(i);
     }
-
-    int i = 0;
-    int j = 0;
-
-    while (i < list.length && j < nums.length) {
-      if (list[i] < nums[j]) {
-        res.add(list[i]);
-        i++;
-      } else if (list[i] > nums[j]) {
-        j++;
-      } else {
-        i++;
-        j++;
-      }
-    }
-
-    while (i < list.length) {
-      res.add(list[i]);
-      i++;
-    }
-
-    return res;
+    return arr;
   }
 }
 
